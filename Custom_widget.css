@@ -1,4 +1,6 @@
-/* TVŮJ PŮVODNÍ STYL */
+/* ================================
+   TVŮJ PŮVODNÍ STYL
+================================ */
 ._1q15b0b1 {
     border-radius: 8px;
     color: var(--_1bof89n5);
@@ -11,13 +13,27 @@
     height: fit-content;
 }
 
-/* =========================== */
-/* 🟦 PŘIDÁNÍ VLASTNÍHO BUTTONU */
-/* =========================== */
 
-/* Přidání tlačítka do headeru vedle zelených */
+/* ================================
+   KROK 1 – Aktivace re-renderu,
+   aby se ::after vykreslilo
+================================ */
+@keyframes forceRender {
+  from { opacity: 1; }
+  to { opacity: 1; }
+}
+
+.vfrc-header__actions {
+  animation: forceRender 1s infinite;
+}
+
+
+/* ================================
+   KROK 2 – PŘIDÁNÍ VLASTNÍHO BUTTONU
+   (vedle dvou zelených)
+================================ */
 .vfrc-header__actions::after {
-    content: "Info";               /* Text tvého buttonu */
+    content: "Info";               /* Text na tlačítku */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,7 +57,7 @@
     background-color: #005fcc;
 }
 
-/* Aby bylo tlačítko klikatelné */
+/* Klikatelnost */
 .vfrc-header__actions::after,
 .vfrc-header__actions {
     pointer-events: auto;
