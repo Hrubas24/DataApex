@@ -1,3 +1,4 @@
+/* TVŮJ PŮVODNÍ STYL */
 ._1q15b0b1 {
     border-radius: 8px;
     color: var(--_1bof89n5);
@@ -8,4 +9,40 @@
     word-break: break-word;
     text-align: left;
     height: fit-content;
+}
+
+/* =========================== */
+/* 🟦 PŘIDÁNÍ VLASTNÍHO BUTTONU */
+/* =========================== */
+
+/* Přidání tlačítka do headeru vedle zelených */
+.vfrc-header__actions::after {
+    content: "Info";               /* Text tvého buttonu */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+    margin-left: 6px;
+
+    background-color: #0077ff;     /* Barva tlačítka */
+    color: white;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+/* Hover efekt */
+.vfrc-header__actions::after:hover {
+    background-color: #005fcc;
+}
+
+/* Aby bylo tlačítko klikatelné */
+.vfrc-header__actions::after,
+.vfrc-header__actions {
+    pointer-events: auto;
 }
