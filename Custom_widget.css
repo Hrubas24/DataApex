@@ -14,25 +14,22 @@
 }
 
 /* ===========================================
-   ÚPRAVA HEADERU PRO 2 TLAČÍTKA
+   HEADER – základ pro palce + hotspoty
 =========================================== */
 .vfrc-header {
-    position: relative;
-    pointer-events: none;
-}
-
-.vfrc-header * {
-    pointer-events: auto;
+    position: relative;   /* aby šly věci absolutně pozicovat */
 }
 
 /* ===========================================
-   BUTTON 1 – PALCE NAHORU (👍)
+   VIZUÁLNÍ PALCE (pouze vzhled, ne klik)
 =========================================== */
+
+/* 👍 palec nahoru */
 .vfrc-header::after {
     content: "👍";
     position: absolute;
     top: 50%;
-    right: 110px;  /* vlevo od refresh / X */
+    right: 110px;              /* vlevo od refresh / X */
     transform: translateY(-50%);
 
     width: 32px;
@@ -45,27 +42,17 @@
     color: white;
     border-radius: 8px;
     font-size: 18px;
-    cursor: pointer;
-    pointer-events: auto;
-    z-index: 9999;
 
-    transition: box-shadow 0.2s ease, background-color 0.2s ease;
+    pointer-events: none;      /* NEchytá klik – ten bere hotspot */
+    z-index: 1;
 }
 
-.vfrc-header::after:hover {
-    background-color: #005fcc;
-    box-shadow: 0 0 8px rgba(0,0,0,0.25);
-}
-
-/* ===========================================
-   BUTTON 2 – PALCE DOLŮ (👎)
-   (Vytvořený přes ::before)
-=========================================== */
+/* 👎 palec dolů */
 .vfrc-header::before {
     content: "👎";
     position: absolute;
     top: 50%;
-    right: 150px;   /* ještě víc vlevo */
+    right: 150px;              /* ještě víc vlevo */
     transform: translateY(-50%);
 
     width: 32px;
@@ -78,14 +65,43 @@
     color: white;
     border-radius: 8px;
     font-size: 18px;
+
+    pointer-events: none;      /* NEchytá klik – ten bere hotspot */
+    z-index: 1;
+}
+
+/* ===========================================
+   HOTSPOTY – neviditelné klikací zóny
+   na stejném místě jako palce
+=========================================== */
+
+.vf-thumb-hotspot {
+    position: absolute;
+    top: 50%;
+    width: 32px;
+    height: 32px;
+    transform: translateY(-50%);
     cursor: pointer;
-    pointer-events: auto;
-    z-index: 9999;
+    background-color: transparent;
+    z-index: 2;                 /* nad pseudo-elementy */
+    border-radius: 8px;
 
     transition: box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
-.vfrc-header::before:hover {
-    background-color: #d93636;
-    box-shadow: 0 0 8px rgba(0,0,0,0.25);
+/* 👍 hotspot */
+.vf-thumb-hotspot--up {
+    right: 110px;               /* stejné jako ::after */
+}
+
+/* 👎 hotspot */
+.vf-thumb-hotspot--down {
+    right: 150px;               /* stejné jako ::before */
+}
+
+/* Hover efekt – „stín“ při najetí myší */
+.vf-thumb-hotspot--up:hover,
+.vf-thumb-hotspot--down:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
 }
