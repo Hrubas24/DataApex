@@ -1,14 +1,38 @@
-/* Header uděláme relativní kvůli absolutní pozici tlačítka */
-.vfrc-header {
-    position: relative;
+/* ===========================================
+   TVŮJ PŮVODNÍ STYL BUBLINY
+=========================================== */
+._1q15b0b1 {
+    border-radius: 8px;
+    color: var(--_1bof89n5);
+    background-color: #f1f2f2;
+    line-height: 20px;
+    padding: 7px 12px 6px;
+    white-space: normal;
+    word-break: break-word;
+    text-align: left;
+    height: fit-content;
 }
 
-/* VLASTNÍ BUTTON v headeru – vlevo od ikon refresh / X */
+/* ===========================================
+   HEADER – příprava pro vlastní tlačítko
+=========================================== */
+.vfrc-header {
+    position: relative;      /* umožní absolutní pozici tlačítka */
+    pointer-events: none;    /* header nepřebírá kliky */
+}
+
+.vfrc-header * {
+    pointer-events: auto;    /* ale jeho obsah ano (refresh, X, logo…) */
+}
+
+/* ===========================================
+   VLASTNÍ TLAČÍTKO "INFO"
+=========================================== */
 .vfrc-header::after {
-    content: "Info";               /* text v tlačítku */
+    content: "Info";
     position: absolute;
     top: 50%;
-    right: 80px;                   /* posun od pravého okraje headeru */
+    right: 110px;            /* posun vlevo od ikon */
     transform: translateY(-50%);
 
     width: 32px;
@@ -23,6 +47,9 @@
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
+
+    z-index: 9999;           /* musí být nad ikonami */
+    pointer-events: auto;    /* TLAČÍTKO JE KLIKATELNÉ */
 
     transition: background-color 0.2s ease;
 }
