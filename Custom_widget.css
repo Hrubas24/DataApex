@@ -1,64 +1,32 @@
-/* ================================
-   TVŮJ PŮVODNÍ STYL
-================================ */
-._1q15b0b1 {
-    border-radius: 8px;
-    color: var(--_1bof89n5);
-    background-color: #f1f2f2;
-    line-height: 20px;
-    padding: 7px 12px 6px;
-    white-space: normal;
-    word-break: break-word;
-    text-align: left;
-    height: fit-content;
+/* Header uděláme relativní kvůli absolutní pozici tlačítka */
+.vfrc-header {
+    position: relative;
 }
 
+/* VLASTNÍ BUTTON v headeru – vlevo od ikon refresh / X */
+.vfrc-header::after {
+    content: "Info";               /* text v tlačítku */
+    position: absolute;
+    top: 50%;
+    right: 80px;                   /* posun od pravého okraje headeru */
+    transform: translateY(-50%);
 
-/* ================================
-   KROK 1 – Aktivace re-renderu,
-   aby se ::after vykreslilo
-================================ */
-@keyframes forceRender {
-  from { opacity: 1; }
-  to { opacity: 1; }
-}
-
-.vfrc-header__actions {
-  animation: forceRender 1s infinite;
-}
-
-
-/* ================================
-   KROK 2 – PŘIDÁNÍ VLASTNÍHO BUTTONU
-   (vedle dvou zelených)
-================================ */
-.vfrc-header__actions::after {
-    content: "Info";               /* Text na tlačítku */
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: 36px;
-    height: 36px;
-    margin-left: 6px;
-
-    background-color: #0077ff;     /* Barva tlačítka */
-    color: white;
+    background-color: #0077ff;
+    color: #ffffff;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     cursor: pointer;
 
-    transition: 0.2s ease;
+    transition: background-color 0.2s ease;
 }
 
-/* Hover efekt */
-.vfrc-header__actions::after:hover {
+.vfrc-header::after:hover {
     background-color: #005fcc;
-}
-
-/* Klikatelnost */
-.vfrc-header__actions::after,
-.vfrc-header__actions {
-    pointer-events: auto;
 }
