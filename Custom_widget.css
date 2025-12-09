@@ -1,12 +1,25 @@
-/* ... (TVŮJ PŮVODNÍ STYL BUBLINY - BEZE ZMĚNY) ... */
+/* ===========================================
+   TVŮJ PŮVODNÍ STYL BUBLINY
+=========================================== */
+._1q15b0b1 {
+    border-radius: 8px;
+    color: var(--_1bof89n5);
+    background-color: #f1f2f2;
+    line-height: 20px;
+    padding: 7px 12px 6px;
+    white-space: normal;
+    word-break: break-word;
+    text-align: left;
+    height: fit-content;
+}
 
 /* ===========================================
-   HEADER – připravíme pro pozicování tlačítek
+   HEADER – pro pozicování tlačítek DIV
 =========================================== */
 .vfrc-header {
     position: relative;
-    /* Odstranili jsme pointer-events: none; a vfrc-header * {} - 
-       Necháme to na výchozím nastavení, protože budeme používat skutečné DIVy. */
+    /* Zajistí, že obsah nebude ořezán, pokud by se tlačítka vykreslila mimo */
+    overflow: visible !important; 
 }
 
 /* ===========================================
@@ -28,19 +41,23 @@
     cursor: pointer;
 
     transition: box-shadow 0.2s ease, background-color 0.2s ease;
-    z-index: 9999;
-    /* Nyní se spolehneme na JS pro vložení tohoto elementu. */
+    z-index: 99999; /* Extrémně vysoký z-index */
 }
+
+/* 🚀 EXTRÉMNÍ LEVÉ POZICOVÁNÍ PRO ZAJIŠTĚNÍ VIDITELNOSTI */
+/* Používáme LEFT, protože pravá strana je často problematická */
 
 /* 👍 palec nahoru */
 .vf-thumb-button--up {
-    right: 110px;             /* Původní funkční pozice z TVÉHO CSS */
+    left: 10px;             /* Zcela vlevo, přes DataApex logo */
+    right: auto;           
     background-color: #0077ff;
 }
 
 /* 👎 palec dolů */
 .vf-thumb-button--down {
-    right: 150px;             /* Původní funkční pozice z TVÉHO CSS */
+    left: 50px;             /* Vedle palce nahoru */
+    right: auto;           
     background-color: #ff4b4b;
 }
 
