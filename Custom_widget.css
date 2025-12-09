@@ -39,20 +39,22 @@
     cursor: pointer;
 
     transition: box-shadow 0.2s ease, background-color 0.2s ease;
-    z-index: 9999; /* Zajišťuje, že tlačítka nejsou překryta */
+    z-index: 99999; /* Extrémně vysoká hodnota pro jistotu */
 }
 
-/* 🚀 OPRAVENÉ POZICE PRO ZOBRAZENÍ V HLAVIČCE */
+/* 🚀 EXTRÉMNÍ LEVÉ POZICOVÁNÍ PRO ZAJIŠTĚNÍ VIDITELNOSTI */
 
 /* 👍 palec nahoru */
 .vf-thumb-button--up {
-    right: 50px;             /* Umístí vedle palce dolů */
+    left: 10px;             /* Umístí blízko levého okraje */
+    right: auto;           /* Zruší původní pravé pozicování */
     background-color: #0077ff;
 }
 
 /* 👎 palec dolů */
 .vf-thumb-button--down {
-    right: 10px;             /* Umístí téměř u samého okraje */
+    left: 50px;             /* Umístí vedle palce nahoru */
+    right: auto;           /* Zruší původní pravé pozicování */
     background-color: #ff4b4b;
 }
 
