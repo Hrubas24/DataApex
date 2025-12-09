@@ -1,66 +1,71 @@
 /* ===========================================
-   TVŮJ PŮVODNÍ STYL BUBLINY
+   TVŮJ PŮVODNÍ STYL BUBLINY
 =========================================== */
 ._1q15b0b1 {
-    border-radius: 8px;
-    color: var(--_1bof89n5);
-    background-color: #f1f2f2;
-    line-height: 20px;
-    padding: 7px 12px 6px;
-    white-space: normal;
-    word-break: break-word;
-    text-align: left;
-    height: fit-content;
+    border-radius: 8px;
+    color: var(--_1bof89n5);
+    background-color: #f1f2f2;
+    line-height: 20px;
+    padding: 7px 12px 6px;
+    white-space: normal;
+    word-break: break-word;
+    text-align: left;
+    height: fit-content;
 }
 
 /* ===========================================
-   HEADER – připravíme pro pozicování tlačítek
+   HEADER – připravíme pro pozicování tlačítek
 =========================================== */
 .vfrc-header {
-    position: relative;
+    position: relative;
 }
 
 /* ===========================================
-   OBECNÝ STYL PRO PALCOVÁ TLAČÍTKA
+   OBECNÝ STYL PRO PALCOVÁ TLAČÍTKA
 =========================================== */
 .vf-thumb-button {
-    position: absolute;
-    top: 50%;
-    width: 32px;
-    height: 32px;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: absolute;
+    top: 50%;
+    width: 32px;
+    height: 32px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    border-radius: 8px;
-    font-size: 18px;
-    color: #ffffff;
-    cursor: pointer;
+    border-radius: 8px;
+    font-size: 18px;
+    color: #ffffff;
+    cursor: pointer;
 
-    transition: box-shadow 0.2s ease, background-color 0.2s ease;
-    z-index: 9999;
+    transition: box-shadow 0.2s ease, background-color 0.2s ease;
+    z-index: 9999;
 }
+
+/* * ÚPRAVA POZIC: 
+ * Snížili jsme hodnoty 'right', aby se tlačítka zobrazila 
+ * vedle standardních ikon zavření/minimalizace v hlavičce.
+ */
 
 /* 👍 palec nahoru */
 .vf-thumb-button--up {
-    right: 110px;             /* polohu si můžeš doladit */
-    background-color: #0077ff;
+    right: 70px;             /* Původně 110px */
+    background-color: #0077ff;
 }
 
 /* 👎 palec dolů */
 .vf-thumb-button--down {
-    right: 150px;             /* polohu si můžeš doladit */
-    background-color: #ff4b4b;
+    right: 30px;             /* Původně 150px */
+    background-color: #ff4b4b;
 }
 
 /* Hover efekt – stín + lehká změna barvy */
 .vf-thumb-button--up:hover {
-    background-color: #005fcc;
-    box-shadow: 0 0 8px rgba(0,0,0,0.25);
+    background-color: #005fcc;
+    box-shadow: 0 0 8px rgba(0,0,0,0.25);
 }
 
 .vf-thumb-button--down:hover {
-    background-color: #d93636;
-    box-shadow: 0 0 8px rgba(0,0,0,0.25);
+    background-color: #d93636;
+    box-shadow: 0 0 8px rgba(0,0,0,0.25);
 }
