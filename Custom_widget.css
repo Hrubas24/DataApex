@@ -17,7 +17,7 @@
    HEADER – připravíme pro pozicování tlačítek
 =========================================== */
 .vfrc-header {
-    position: relative;
+    position: relative; /* Klíčové pro absolutní pozicování dětí */
 }
 
 /* ===========================================
@@ -28,7 +28,7 @@
     top: 50%;
     width: 32px;
     height: 32px;
-    transform: translateY(-50%);
+    transform: translateY(-50%); /* Vertikální vycentrování */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,23 +39,20 @@
     cursor: pointer;
 
     transition: box-shadow 0.2s ease, background-color 0.2s ease;
-    z-index: 9999;
+    z-index: 9999; /* Zajišťuje, že tlačítka nejsou překryta */
 }
 
-/* * ÚPRAVA POZIC: 
- * Snížili jsme hodnoty 'right', aby se tlačítka zobrazila 
- * vedle standardních ikon zavření/minimalizace v hlavičce.
- */
+/* 🚀 OPRAVENÉ POZICE PRO ZOBRAZENÍ V HLAVIČCE */
 
 /* 👍 palec nahoru */
 .vf-thumb-button--up {
-    right: 70px;             /* Původně 110px */
+    right: 50px;             /* Umístí vedle palce dolů */
     background-color: #0077ff;
 }
 
 /* 👎 palec dolů */
 .vf-thumb-button--down {
-    right: 30px;             /* Původně 150px */
+    right: 10px;             /* Umístí téměř u samého okraje */
     background-color: #ff4b4b;
 }
 
