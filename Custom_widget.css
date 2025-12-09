@@ -1,91 +1,56 @@
-/* ===========================================
-   TVŮJ PŮVODNÍ STYL BUBLINY
-=========================================== */
-._1q15b0b1 {
-    border-radius: 8px;
-    color: var(--_1bof89n5);
-    background-color: #f1f2f2;
-    line-height: 20px;
-    padding: 7px 12px 6px;
-    white-space: normal;
-    word-break: break-word;
-    text-align: left;
-    height: fit-content;
-}
+/* ... (TVŮJ PŮVODNÍ STYL BUBLINY - BEZE ZMĚNY) ... */
 
 /* ===========================================
-   ÚPRAVA HEADERU PRO 2 TLAČÍTKA
+   HEADER – připravíme pro pozicování tlačítek
 =========================================== */
 .vfrc-header {
-    position: relative;
-    pointer-events: none;
-}
-
-.vfrc-header * {
-    pointer-events: auto;
+    position: relative;
+    /* Odstranili jsme pointer-events: none; a vfrc-header * {} - 
+       Necháme to na výchozím nastavení, protože budeme používat skutečné DIVy. */
 }
 
 /* ===========================================
-   BUTTON 1 – PALCE NAHORU (👍)
+   OBECNÝ STYL PRO PALCOVÁ TLAČÍTKA (TŘÍDY)
 =========================================== */
-.vfrc-header::after {
-    content: "👍";
-    position: absolute;
-    top: 50%;
-    right: 110px;  /* vlevo od refresh / X */
-    transform: translateY(-50%);
+.vf-thumb-button {
+    position: absolute;
+    top: 50%;
+    width: 32px;
+    height: 32px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border-radius: 8px;
+    font-size: 18px;
+    color: #ffffff;
+    cursor: pointer;
 
-    background-color: #0077ff;
-    color: white;
-    border-radius: 8px;
-    font-size: 18px;
-    cursor: pointer;
-    pointer-events: auto;
-    z-index: 9999;
-
-    transition: box-shadow 0.2s ease, background-color 0.2s ease;
+    transition: box-shadow 0.2s ease, background-color 0.2s ease;
+    z-index: 9999;
+    /* Nyní se spolehneme na JS pro vložení tohoto elementu. */
 }
 
-.vfrc-header::after:hover {
-    background-color: #005fcc;
-    box-shadow: 0 0 8px rgba(0,0,0,0.25);
+/* 👍 palec nahoru */
+.vf-thumb-button--up {
+    right: 110px;             /* Původní funkční pozice z TVÉHO CSS */
+    background-color: #0077ff;
 }
 
-/* ===========================================
-   BUTTON 2 – PALCE DOLŮ (👎)
-   (Vytvořený přes ::before)
-=========================================== */
-.vfrc-header::before {
-    content: "👎";
-    position: absolute;
-    top: 50%;
-    right: 150px;   /* ještě víc vlevo */
-    transform: translateY(-50%);
-
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background-color: #ff4b4b;
-    color: white;
-    border-radius: 8px;
-    font-size: 18px;
-    cursor: pointer;
-    pointer-events: auto;
-    z-index: 9999;
-
-    transition: box-shadow 0.2s ease, background-color 0.2s ease;
+/* 👎 palec dolů */
+.vf-thumb-button--down {
+    right: 150px;             /* Původní funkční pozice z TVÉHO CSS */
+    background-color: #ff4b4b;
 }
 
-.vfrc-header::before:hover {
-    background-color: #d93636;
-    box-shadow: 0 0 8px rgba(0,0,0,0.25);
+/* Hover efekt – stín + lehká změna barvy */
+.vf-thumb-button--up:hover {
+    background-color: #005fcc;
+    box-shadow: 0 0 8px rgba(0,0,0,0.25);
+}
+
+.vf-thumb-button--down:hover {
+    background-color: #d93636;
+    box-shadow: 0 0 8px rgba(0,0,0,0.25);
 }
