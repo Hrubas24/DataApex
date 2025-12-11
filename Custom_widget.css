@@ -1,24 +1,21 @@
-/* --- ZÁKLADNÍ ÚPRAVA HEADERU --- */
-
-/* Header right část – srovnáme buttony pěkně vedle sebe */
-.vfrc-header .vfrc-header--right {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+/* skryj kontejner, dokud není uvnitř headeru widgetu */
+#vf-custom-thumbs {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
 }
 
-/* --- KONTEJNER PRO PALCE --- */
-
-.vf-thumbs-container {
+/* jakmile je uvnitř .vfrc-header, zobraz ho a srovnej s buttony */
+.vfrc-header #vf-custom-thumbs {
+  position: static;
+  opacity: 1;
+  pointer-events: auto;
   display: flex;
   align-items: center;
   gap: 6px;
-  /* zajistí, že na ně půjdou klikatelně eventy */
-  pointer-events: auto;
 }
 
-/* --- ZÁKLAD PALCE (BUTTON) --- */
-
+/* samotná tlačítka palců */
 .vf-thumb {
   position: relative;
   width: 24px;
@@ -31,7 +28,6 @@
   outline: none;
 }
 
-/* hover/active efekty */
 .vf-thumb:hover {
   background: rgba(255, 255, 255, 0.16);
 }
@@ -40,13 +36,13 @@
   transform: scale(0.95);
 }
 
-/* --- IKONA PALCE – kreslená čistě pomocí CSS --- */
-
+/* kreslení palce čistě z borderů – bílá barva */
 .vf-thumb::before,
 .vf-thumb::after {
   content: "";
   position: absolute;
   box-sizing: border-box;
+  border-color: #ffffff;
 }
 
 /* dřík palce */
@@ -59,7 +55,7 @@
   border: 2px solid #ffffff;
 }
 
-/* palec (výstupek) */
+/* výstupek palce */
 .vf-thumb::after {
   width: 9px;
   height: 8px;
@@ -67,12 +63,7 @@
   border: 2px solid #ffffff;
 }
 
-/* --- THUMBS UP --- */
-
-.vf-thumb--up::before {
-  /* vodorovný “dřík” palce */
-}
-
+/* palec nahoru */
 .vf-thumb--up::after {
   left: 5px;
   top: 7px;
@@ -81,24 +72,11 @@
   transform: rotate(-25deg);
 }
 
-/* --- THUMBS DOWN (otočíme celou ikonku) --- */
-
+/* palec dolů = otočená ikona */
 .vf-thumb--down {
   transform: rotate(180deg);
 }
 
 .vf-thumb--down:active {
   transform: rotate(180deg) scale(0.95);
-}
-
-/* barva palců čistě bílá */
-.vf-thumb::before,
-.vf-thumb::after {
-  border-color: #ffffff;
-}
-
-/* pro jistotu – ať nic nepřekrývá klik na naše palce */
-.vf-thumbs-container,
-.vf-thumb {
-  pointer-events: auto;
 }
