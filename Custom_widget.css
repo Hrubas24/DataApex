@@ -1,66 +1,104 @@
-/* Voiceflow Header Buttons */
+/* --- ZÁKLADNÍ ÚPRAVA HEADERU --- */
 
-/* Najdi header a přidej flexbox layout */
-.vfrc-header {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  position: relative !important;
-}
-
-/* Vytvoř pseudo-element pro buttony v headeru */
-.vfrc-header::after {
-  content: '';
+/* Header right část – srovnáme buttony pěkně vedle sebe */
+.vfrc-header .vfrc-header--right {
   display: flex;
-  gap: 10px;
-  margin-left: auto;
-  margin-right: 10px;
+  align-items: center;
+  gap: 8px;
 }
 
-/* Container pro feedback buttony */
-.vfrc-header-feedback-container {
-  display: flex !important;
-  gap: 8px !important;
-  margin-left: auto !important;
-  margin-right: 10px !important;
-  align-items: center !important;
+/* --- KONTEJNER PRO PALCE --- */
+
+.vf-thumbs-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  /* zajistí, že na ně půjdou klikatelně eventy */
+  pointer-events: auto;
 }
 
-/* Styling pro thumbs up button */
-.vfrc-header-feedback-container .thumbs-up {
-  background: none !important;
-  border: none !important;
-  font-size: 20px !important;
-  cursor: pointer !important;
-  padding: 6px 10px !important;
-  transition: transform 0.2s ease !important;
-  opacity: 0.8 !important;
+/* --- ZÁKLAD PALCE (BUTTON) --- */
+
+.vf-thumb {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
 }
 
-.vfrc-header-feedback-container .thumbs-up:hover {
-  transform: scale(1.3) !important;
-  opacity: 1 !important;
+/* hover/active efekty */
+.vf-thumb:hover {
+  background: rgba(255, 255, 255, 0.16);
 }
 
-/* Styling pro thumbs down button */
-.vfrc-header-feedback-container .thumbs-down {
-  background: none !important;
-  border: none !important;
-  font-size: 20px !important;
-  cursor: pointer !important;
-  padding: 6px 10px !important;
-  transition: transform 0.2s ease !important;
-  opacity: 0.8 !important;
+.vf-thumb:active {
+  transform: scale(0.95);
 }
 
-.vfrc-header-feedback-container .thumbs-down:hover {
-  transform: scale(1.3) !important;
-  opacity: 1 !important;
+/* --- IKONA PALCE – kreslená čistě pomocí CSS --- */
+
+.vf-thumb::before,
+.vf-thumb::after {
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
 }
 
-/* Responsive - na mobilu smaž buttony pokud je málo místa */
-@media (max-width: 480px) {
-  .vfrc-header-feedback-container {
-    display: none !important;
-  }
+/* dřík palce */
+.vf-thumb::before {
+  left: 9px;
+  right: 9px;
+  top: 6px;
+  bottom: 6px;
+  border-radius: 3px;
+  border: 2px solid #ffffff;
+}
+
+/* palec (výstupek) */
+.vf-thumb::after {
+  width: 9px;
+  height: 8px;
+  border-radius: 3px;
+  border: 2px solid #ffffff;
+}
+
+/* --- THUMBS UP --- */
+
+.vf-thumb--up::before {
+  /* vodorovný “dřík” palce */
+}
+
+.vf-thumb--up::after {
+  left: 5px;
+  top: 7px;
+  border-right: none;
+  border-bottom: none;
+  transform: rotate(-25deg);
+}
+
+/* --- THUMBS DOWN (otočíme celou ikonku) --- */
+
+.vf-thumb--down {
+  transform: rotate(180deg);
+}
+
+.vf-thumb--down:active {
+  transform: rotate(180deg) scale(0.95);
+}
+
+/* barva palců čistě bílá */
+.vf-thumb::before,
+.vf-thumb::after {
+  border-color: #ffffff;
+}
+
+/* pro jistotu – ať nic nepřekrývá klik na naše palce */
+.vf-thumbs-container,
+.vf-thumb {
+  pointer-events: auto;
 }
