@@ -1,67 +1,40 @@
-/*
- * Voiceflow Custom Widget Styles
- * Urceno pro umisteni widgetu do vlastniho kontejneru s custom headerem.
- */
-
-/* 1. Obalovy kontejner pro cely widget a custom header */
-#voiceflow-custom-widget-container {
-    /* Nastaveni pozice kontejneru (simulace standardniho VF widgetu) */
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 380px; /* Upravte sirku dle potreby */
-    height: 480px; /* Upravte vysku dle potreby */
-    z-index: 9999;
-    /* Dulezite: Zajisteni, ze scroll funguje uvnitr widgetu */
-    overflow: hidden; 
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+/* Zajistí, že můžeme absolutně pozicovat uvnitř headeru */
+.vfrc-header {
+  position: relative;
 }
 
-/* 2. Vlastni header (pro tlacitka) */
-#vf-custom-header {
-    background-color: #3f51b5; /* Standardni Voiceflow modra, upravte dle znacky */
-    color: white;
-    padding: 10px 15px;
-    display: flex;
-    justify-content: flex-end; /* Umisteni tlacitek vpravo */
-    align-items: center;
-    height: 48px; /* Standardni vyska headeru */
+/* Overlay pro palce – leží nad headerem */
+.sr-thumbs-overlay {
+  position: absolute;
+  right: 50px;              /* vzdálenost od pravého okraje, aby zůstal prostor pro close */
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 5;
+  pointer-events: none;     /* overlay se nechová jako blokátor kliků */
 }
 
-#vf-custom-header button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 20px; /* Vetsi ikony */
-    margin-left: 15px; /* Vetsi mezera mezi tlacitky */
-    padding: 0;
-    line-height: 1; /* Zajisteni spravne velikosti */
-    transition: opacity 0.2s;
+/* Tlačítka samotná – na nich pointer-events zase zapneme */
+.sr-thumb-btn {
+  pointer-events: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
-#vf-custom-header button:hover:not(:disabled) {
-    opacity: 0.8;
+.sr-thumb-up,
+.sr-thumb-down {
+  font-size: 16px;
+  color: #ffffff;           /* bílé palce */
+  opacity: 0.9;
+  transition: transform 0.15s ease, opacity 0.15s ease;
 }
 
-#vf-custom-header button:disabled {
-    cursor: not-allowed;
-    opacity: 0.4; /* Ztlumeni tlacitka po odeslani feedbacku */
-}
-
-/* 3. Placeholder pro samotny Voiceflow widget */
-#voiceflow-widget-placeholder {
-    height: calc(100% - 48px); /* 100% vyska minus vyska custom headeru */
-}
-
-/* 4. Skryti puvodniho Voiceflow headeru, ktery je nyni nahrazen */
-/* Selector muze byt potreba upravit, Voiceflow pouziva Shadow DOM, ale 
-   to by nemel byt problem, pokud je widget uvnitr placeholderu */
-#voiceflow-widget-placeholder .vfrc-chat-dialog-header {
-    display: none !important;
-}
-
-/* 5. Zarizeni, aby widget zabiral plnou plochu placeholderu */
-#voiceflow-widget-placeholder > div {
-    height: 100%;
+.sr-thumb-up:hover,
+.sr-thumb-down:hover {
+  transform: scale(1.2);
+  opacity: 1;
 }
