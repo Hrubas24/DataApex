@@ -1,22 +1,28 @@
-/* Zajistí, že můžeme absolutně pozicovat uvnitř headeru */
-.vfrc-header {
+/* Kontejner Voiceflow widgetu – aby šel overlay pozicovat */
+.vfrc-widget {
   position: relative;
 }
 
-/* Overlay pro palce – leží nad headerem */
-.sr-thumbs-overlay {
+/* Neviditelný overlay přes celý widget */
+.sr-widget-overlay {
   position: absolute;
-  right: 50px;              /* vzdálenost od pravého okraje, aby zůstal prostor pro close */
-  top: 50%;
-  transform: translateY(-50%);
+  inset: 0;              /* top:0; right:0; bottom:0; left:0; */
+  pointer-events: none;  /* overlay NEblokuje interakce pod sebou */
+  z-index: 9999;         /* nad obsahem widgetu */
+}
+
+/* "Header" v overlay – jen oblast pro palce */
+.sr-overlay-header {
+  position: absolute;
+  top: 6px;        /* doladíš podle oka, ať sedí do headeru */
+  right: 70px;     /* tak aby vpravo zůstal původní close/refresh */
   display: flex;
   align-items: center;
   gap: 6px;
-  z-index: 5;
-  pointer-events: none;     /* overlay se nechová jako blokátor kliků */
+  pointer-events: none;   /* samotný header neblokuje nic pod sebou */
 }
 
-/* Tlačítka samotná – na nich pointer-events zase zapneme */
+/* Samotné palce – na nich pointer-events ZAPNEME */
 .sr-thumb-btn {
   pointer-events: auto;
   background: none;
@@ -25,16 +31,14 @@
   padding: 0;
 }
 
-.sr-thumb-up,
-.sr-thumb-down {
-  font-size: 16px;
-  color: #ffffff;           /* bílé palce */
+.sr-thumb-icon {
+  font-size: 18px;
+  color: #ffffff;  /* bílé palce */
   opacity: 0.9;
   transition: transform 0.15s ease, opacity 0.15s ease;
 }
 
-.sr-thumb-up:hover,
-.sr-thumb-down:hover {
+.sr-thumb-icon:hover {
   transform: scale(1.2);
   opacity: 1;
 }
