@@ -1,30 +1,25 @@
-/* Aby šel overlay pozicovat */
-.vfrc-widget {
-  position: relative;
-}
-
-/* Neviditelný overlay přes celý widget */
-.sr-widget-overlay {
+/* overlay přes celý widget */
+.sr-overlay {
   position: absolute;
   inset: 0;
-  pointer-events: none;
+  pointer-events: none;       /* overlay neblokuje widget */
   z-index: 9999;
 }
 
-/* Místo v overlay, kde budou palce (vpravo nahoře) */
+/* header uvnitř overlay */
 .sr-overlay-header {
   position: absolute;
   top: 6px;
-  right: 70px; /* místo pro původní VF close/refresh */
+  right: 70px;                /* nechává místo pro close button */
   display: flex;
   align-items: center;
   gap: 6px;
-  pointer-events: none;
+  pointer-events: none;       /* header neblokuje widget */
 }
 
-/* Palce mají pointer-event ON → dají se klikat */
+/* palce uvnitř */
 .sr-thumb-btn {
-  pointer-events: auto;
+  pointer-events: auto;       /* na palce jde kliknout */
   background: none;
   border: none;
   padding: 0;
@@ -33,9 +28,9 @@
 
 .sr-thumb-icon {
   font-size: 18px;
-  color: #ffffff;
+  color: #fff;
   opacity: 0.9;
-  transition: transform 0.15s ease, opacity 0.15s ease;
+  transition: transform .15s ease, opacity .15s ease;
 }
 
 .sr-thumb-icon:hover {
