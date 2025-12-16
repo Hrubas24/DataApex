@@ -1,23 +1,12 @@
-/* ===========================================
-   HLAVNÍ KONTEJNER (scroll část s bublinami)
-=========================================== */
-.s9t60i1 {
+/* jen kvůli vrstvení backgroundu */
+.s9t60i1 { 
   position: relative;
-  padding: 0 20px 12px;
-  margin-bottom: 0 !important;
-  scrollbar-width: none;
-  flex-grow: 1;
-  overflow-y: auto;
-  width: 100%;
-  box-sizing: border-box;
 }
 
-/* ===========================================
-   OBRÁZEK NA POZADÍ (fixní, nescrolluje)
-=========================================== */
-.s9t60i1::before {
-  content: "";
-  position: fixed;
+/* background obrázek fixně (nepohybuje se při scrollu) */
+.s9t60i1::before{
+  content:"";
+  position: fixed;            /* ✅ drží pozici při scrollu */
   inset: 0;
   z-index: 0;
 
@@ -26,59 +15,12 @@
   background-position: center 75%;
   background-size: 360px auto;
 
-  opacity: 0.10;
+  opacity: .10;
   pointer-events: none;
 }
 
-/* ===========================================
-   OBSAH NAD POZADÍM
-=========================================== */
-.s9t60i1 > * {
+/* obsah nad obrázkem */
+.s9t60i1 > *{
   position: relative;
   z-index: 1;
-}
-
-/* ===========================================
-   DOLADĚNÍ SPACINGŮ ZPRÁV / CTA
-=========================================== */
-.s9t60i1 [class*="message"],
-.s9t60i1 [class*="action"],
-.s9t60i1 [class*="button"] {
-  margin-bottom: 6px !important;
-}
-
-/* ===========================================
-   FIX GAP: zrušení spacerů, které tlačí CTA dolů
-   (Voiceflow často používá flex-grow spacer nebo margin-top:auto)
-=========================================== */
-
-/* 1) Pokud je někde spacer s flex-grow/flex:1, zrušíme jeho „vyplňování prostoru“ */
-.s9t60i1 [style*="flex-grow: 1"],
-.s9t60i1 [style*="flex-grow:1"],
-.s9t60i1 [style*="flex: 1"],
-.s9t60i1 [style*="flex:1"] {
-  flex-grow: 0 !important;
-  flex: 0 0 auto !important;
-  height: auto !important;
-  min-height: 0 !important;
-}
-
-/* 2) Pokud wrapper tlačí CTA dolů přes margin-top:auto, vypneme to */
-.s9t60i1 [style*="margin-top: auto"],
-.s9t60i1 [style*="margin-top:auto"] {
-  margin-top: 0 !important;
-}
-
-/* 3) Častý “neviditelný spacer” jako prázdný element */
-.s9t60i1 > *:empty {
-  display: none !important;
-  height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* 4) Poslední prvek – jen malý dojezd */
-.s9t60i1 > *:last-child {
-  margin-bottom: 2px !important;
-  scroll-margin-bottom: 90px;
 }
