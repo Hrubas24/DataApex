@@ -1,3 +1,6 @@
+/* ===========================================
+   HLAVNÍ KONTEJNER
+=========================================== */
 .s9t60i1 {
     position: relative;
     padding: 0 20px 20px;
@@ -10,7 +13,9 @@
     /* původní background zůstává beze změny */
 }
 
-/* obrázek na pozadí */
+/* ===========================================
+   DEKORATIVNÍ OBRÁZEK NA POZADÍ
+=========================================== */
 .s9t60i1::before {
     content: "";
     position: absolute;
@@ -19,14 +24,22 @@
 
     background-image: url("https://www.shutterstock.com/image-vector/highperformance-liquid-chromatography-hplc-machine-600nw-2251283969.jpg");
     background-repeat: no-repeat;
-    background-position: right -40px center;
-    background-size: 320px auto;
 
-    opacity: 0.18; /* jemné, neruší text */
+    /* střed + níže */
+    background-position: center 65%;
+
+    /* velikost obrázku */
+    background-size: 360px auto;
+
+    /* jemnost, aby nerušil text */
+    opacity: 0.18;
+
     pointer-events: none;
 }
 
-/* obsah musí být nad obrázkem */
+/* ===========================================
+   OBSAH NAD POZADÍM
+=========================================== */
 .s9t60i1 > * {
     position: relative;
     z-index: 1;
