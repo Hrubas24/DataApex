@@ -3,7 +3,7 @@
 =========================================== */
 .s9t60i1 {
   position: relative;
-  padding: 0 20px 12px;          /* 👈 minimální padding, žádný velký gap */
+  padding: 0 20px 12px;
   margin-bottom: 0 !important;
   scrollbar-width: none;
   flex-grow: 1;
@@ -48,10 +48,26 @@
 }
 
 /* ===========================================
-   POSLEDNÍ PRVEK – OCHRANA PROTI INPUTU
-   (NEVYTVÁŘÍ VIZUÁLNÍ PRÁZDNO)
+   ✅ ODSTRANĚNÍ VOICEFLOW "SPACER" MEZERY DOLE
+   (většinou je to prázdný element na konci listu)
 =========================================== */
+
+/* 1) zruš všechny prázdné děti (typicky spacer div) */
+.s9t60i1 > *:empty {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 2) často je spacer poslední child – zkusíme ho "zplácnout" */
 .s9t60i1 > *:last-child {
-  margin-bottom: 2px !important;   /* 👈 co nejmenší mezera */
-  scroll-margin-bottom: 450px;      /* 👈 scroll se zastaví nad inputem */
+  margin-bottom: 2px !important;
+  padding-bottom: 0 !important;
+}
+
+/* 3) když Voiceflow nastaví výšku inline stylem (height: xxxpx), zrušíme ji */
+.s9t60i1 > [style*="height"] {
+  height: auto !important;
+  min-height: 0 !important;
 }
