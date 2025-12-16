@@ -3,15 +3,15 @@
 =========================================== */
 .s9t60i1 {
     position: relative;
-    padding: 0 20px 110px;      /* 👈 víc místa dole nad input */
-    margin-bottom: 0 !important;/* 👈 zruší překryv do inputu */
+    padding: 0 20px 70px;       /* 👈 menší základní mezera */
+    margin-bottom: 0 !important;
     scrollbar-width: none;
     flex-grow: 1;
     overflow-y: auto;
     width: 100%;
     box-sizing: border-box;
 
-    scroll-padding-bottom: 110px; /* 👈 aby scroll neskončil pod inputem */
+    scroll-padding-bottom: 70px; /* 👈 aby poslední zpráva nebyla pod inputem */
 }
 
 /* ===========================================
@@ -38,4 +38,11 @@
 .s9t60i1 > * {
     position: relative;
     z-index: 1;
+}
+
+/* ===========================================
+   MALÝ BUFFER JEN POD POSLEDNÍ ZPRÁVOU
+=========================================== */
+.s9t60i1 > *:last-child {
+    margin-bottom: 24px; /* 👈 jemné, přirozené */
 }
