@@ -16,7 +16,7 @@
 }
 
 /* ===========================================
-   MESSAGE BUBBLE – BORDER
+   MESSAGE BUBBLE
 =========================================== */
 ._11kfxpg0 {
   background-color: #f1f2f2;
@@ -31,6 +31,6 @@
   border-radius: 10px;
   width: fit-content;
 
-  /* border */
-  border: 1px solid var(--_1bof89n5);
+  /* default: neviditelný border */
+  border: 1px solid #397dff00;
 }
