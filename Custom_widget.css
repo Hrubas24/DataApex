@@ -31,6 +31,24 @@
   border-radius: 10px;
   width: fit-content;
 
-  /* default: neviditelný border */
+  /* border – defaultně transparentní */
+  border: 1px solid #397dff00;
+}
+
+/* ===========================================
+   BUTTON
+=========================================== */
+._1q15b0b1 {
+  border-radius: 8px;
+  color: var(--_1bof89n5);
+  background-color: var(--_1bof89n0);
+  line-height: 20px;
+  padding: 7px 12px 6px;
+  white-space: normal;
+  word-break: break-word;
+  text-align: left;
+  height: fit-content;
+
+  /* border – defaultně transparentní */
   border: 1px solid #397dff00;
 }
