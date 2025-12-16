@@ -3,25 +3,17 @@
 =========================================== */
 .s9t60i1 {
   position: relative;
-  padding: 0 20px 12px;          /* malý padding, žádný vizuální gap */
+  padding: 0 20px 12px;          /* 👈 minimální padding, žádný velký gap */
   margin-bottom: 0 !important;
   scrollbar-width: none;
   flex-grow: 1;
   overflow-y: auto;
   width: 100%;
   box-sizing: border-box;
-
-  /* ✅ KLÍČ: když je málo obsahu, drž vše dole */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-
-  /* důležité ve flex layoutu widgetu */
-  min-height: 0;
 }
 
 /* ===========================================
-   OBRÁZEK NA POZADÍ (neposouvá se se scroll)
+   OBRÁZEK NA POZADÍ (fixní, nescrolluje)
 =========================================== */
 .s9t60i1::before {
   content: "";
@@ -47,7 +39,7 @@
 }
 
 /* ===========================================
-   ZMENŠENÍ SPACINGŮ (CTA / button / message)
+   DOLADĚNÍ SPACINGŮ ZPRÁV / CTA
 =========================================== */
 .s9t60i1 [class*="message"],
 .s9t60i1 [class*="action"],
@@ -55,8 +47,11 @@
   margin-bottom: 6px !important;
 }
 
-/* malá mezera pod posledním prvkem */
+/* ===========================================
+   POSLEDNÍ PRVEK – OCHRANA PROTI INPUTU
+   (NEVYTVÁŘÍ VIZUÁLNÍ PRÁZDNO)
+=========================================== */
 .s9t60i1 > *:last-child {
-  margin-bottom: 6px !important;
-  scroll-margin-bottom: 90px; /* aby při scrollu neskončil pod inputem */
+  margin-bottom: 4px !important;   /* 👈 co nejmenší mezera */
+  scroll-margin-bottom: 60px;      /* 👈 scroll se zastaví nad inputem */
 }
