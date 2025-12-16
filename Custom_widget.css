@@ -9,12 +9,10 @@
     flex-grow: 1;
     overflow-y: auto;
     width: 100%;
-
-    /* původní background zůstává beze změny */
 }
 
 /* ===========================================
-   DEKORATIVNÍ OBRÁZEK NA POZADÍ
+   OBRÁZEK NA POZADÍ – STŘED
 =========================================== */
 .s9t60i1::before {
     content: "";
@@ -25,14 +23,13 @@
     background-image: url("https://www.shutterstock.com/image-vector/highperformance-liquid-chromatography-hplc-machine-600nw-2251283969.jpg");
     background-repeat: no-repeat;
 
-    /* střed + níže */
-    background-position: center 90%;
+    /* přesný střed */
+    background-position: center center;
 
-    /* velikost obrázku */
-    background-size: 310px auto;
+    background-size: 360px auto;
 
-    /* jemnost, aby nerušil text */
-    opacity: 0.18;
+    /* jemnější než předtím */
+    opacity: 0.12;
 
     pointer-events: none;
 }
