@@ -3,13 +3,21 @@
 =========================================== */
 .s9t60i1 {
   position: relative;
-  padding: 0 20px 16px;          /* ✅ malý padding = žádný velký gap */
+  padding: 0 20px 12px;          /* malý padding, žádný vizuální gap */
   margin-bottom: 0 !important;
   scrollbar-width: none;
   flex-grow: 1;
   overflow-y: auto;
   width: 100%;
   box-sizing: border-box;
+
+  /* ✅ KLÍČ: když je málo obsahu, drž vše dole */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  /* důležité ve flex layoutu widgetu */
+  min-height: 0;
 }
 
 /* ===========================================
@@ -39,19 +47,16 @@
 }
 
 /* ===========================================
-   OCHRANA: POSLEDNÍ PRVEK SE NEDOSCROLUJE POD INPUT
-   (nepřidává vizuální prázdno jako padding-bottom)
-=========================================== */
-.s9t60i1 > *:last-child {
-  margin-bottom: 12px !important;      /* jen drobná mezera */
-  scroll-margin-bottom: 90px;          /* ✅ klíčové: stopne se nad inputem */
-}
-
-/* ===========================================
-   PŘÍPADNĚ ZMENŠI SPACING U ACTION/BUTTON WRAPPERŮ
+   ZMENŠENÍ SPACINGŮ (CTA / button / message)
 =========================================== */
 .s9t60i1 [class*="message"],
 .s9t60i1 [class*="action"],
 .s9t60i1 [class*="button"] {
-  margin-bottom: 8px !important;
+  margin-bottom: 6px !important;
+}
+
+/* malá mezera pod posledním prvkem */
+.s9t60i1 > *:last-child {
+  margin-bottom: 6px !important;
+  scroll-margin-bottom: 90px; /* aby při scrollu neskončil pod inputem */
 }
