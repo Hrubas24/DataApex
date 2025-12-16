@@ -48,11 +48,28 @@
 }
 
 /* ===========================================
-   ✅ ODSTRANĚNÍ VOICEFLOW "SPACER" MEZERY DOLE
-   (většinou je to prázdný element na konci listu)
+   FIX GAP: zrušení spacerů, které tlačí CTA dolů
+   (Voiceflow často používá flex-grow spacer nebo margin-top:auto)
 =========================================== */
 
-/* 1) zruš všechny prázdné děti (typicky spacer div) */
+/* 1) Pokud je někde spacer s flex-grow/flex:1, zrušíme jeho „vyplňování prostoru“ */
+.s9t60i1 [style*="flex-grow: 1"],
+.s9t60i1 [style*="flex-grow:1"],
+.s9t60i1 [style*="flex: 1"],
+.s9t60i1 [style*="flex:1"] {
+  flex-grow: 0 !important;
+  flex: 0 0 auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+/* 2) Pokud wrapper tlačí CTA dolů přes margin-top:auto, vypneme to */
+.s9t60i1 [style*="margin-top: auto"],
+.s9t60i1 [style*="margin-top:auto"] {
+  margin-top: 0 !important;
+}
+
+/* 3) Častý “neviditelný spacer” jako prázdný element */
 .s9t60i1 > *:empty {
   display: none !important;
   height: 0 !important;
@@ -60,14 +77,8 @@
   padding: 0 !important;
 }
 
-/* 2) často je spacer poslední child – zkusíme ho "zplácnout" */
+/* 4) Poslední prvek – jen malý dojezd */
 .s9t60i1 > *:last-child {
   margin-bottom: 2px !important;
-  padding-bottom: 0 !important;
-}
-
-/* 3) když Voiceflow nastaví výšku inline stylem (height: xxxpx), zrušíme ji */
-.s9t60i1 > [style*="height"] {
-  height: auto !important;
-  min-height: 0 !important;
+  scroll-margin-bottom: 90px;
 }
