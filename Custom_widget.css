@@ -1,19 +1,16 @@
 /* ===========================================
-   SCROLL OBLAST CHATU
-   (funkcionalita beze změny, jen safe-area dole)
+   JEDINÁ VIZUÁLNÍ ZMĚNA: BACKGROUND OBRÁZEK (FIXED)
+   + FUNKČNÍ FIX: SPACER DOLE (aby text nelezl do inputu)
 =========================================== */
-.s9t60i1 {
+
+.s9t60i1{
   position: relative;
-  padding-bottom: 100px;            /* 👈 ochrana proti inputu */
-  scroll-padding-bottom: 100px;     /* 👈 správné doscrolování */
 }
 
-/* ===========================================
-   DEKORATIVNÍ BACKGROUND OBRÁZEK (FIXED)
-=========================================== */
-.s9t60i1::before {
-  content: "";
-  position: fixed;                  /* 👈 zůstává na místě při scrollu */
+/* background obrázek – nemění pozici při scrollu */
+.s9t60i1::before{
+  content:"";
+  position: fixed;
   inset: 0;
   z-index: 0;
 
@@ -26,10 +23,15 @@
   pointer-events: none;
 }
 
-/* ===========================================
-   OBSAH VŽDY NAD BACKGROUNDEM
-=========================================== */
-.s9t60i1 > * {
+/* ✅ reálný spacer na konci scroll obsahu (NEPŘEPIŠE layout, jen přidá místo) */
+.s9t60i1::after{
+  content:"";
+  display: block;
+  height: 120px;       /* 👈 uprav 90–160px podle výšky inputu */
+}
+
+/* obsah nad backgroundem */
+.s9t60i1 > *{
   position: relative;
   z-index: 1;
 }
