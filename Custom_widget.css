@@ -3,19 +3,19 @@
 =========================================== */
 .s9t60i1 {
     position: relative;
-    padding: 0 20px 70px;       /* 👈 menší základní mezera */
-    margin-bottom: 0 !important;
+    padding: 0 20px 70px;        /* prostor nad inputem */
+    margin-bottom: 0 !important; /* zruší překryv do inputu */
     scrollbar-width: none;
     flex-grow: 1;
     overflow-y: auto;
     width: 100%;
     box-sizing: border-box;
 
-    scroll-padding-bottom: 70px; /* 👈 aby poslední zpráva nebyla pod inputem */
+    scroll-padding-bottom: 70px; /* aby scroll neskončil pod inputem */
 }
 
 /* ===========================================
-   OBRÁZEK NA POZADÍ
+   OBRÁZEK NA POZADÍ (neposouvá se se scroll)
 =========================================== */
 .s9t60i1::before {
     content: "";
@@ -28,7 +28,7 @@
     background-position: center 75%;
     background-size: 360px auto;
 
-    opacity: 0.10;
+    opacity: 0.10; /* jemné */
     pointer-events: none;
 }
 
@@ -41,8 +41,15 @@
 }
 
 /* ===========================================
-   MALÝ BUFFER JEN POD POSLEDNÍ ZPRÁVOU
+   ZMENŠENÍ GAPŮ POD AKČNÍMI PRVKY (Leave a contact)
 =========================================== */
+.s9t60i1 [class*="message"],
+.s9t60i1 [class*="action"],
+.s9t60i1 [class*="button"] {
+    margin-bottom: 8px !important;
+}
+
+/* poslední prvek ve scrolu - už jen malá mezera */
 .s9t60i1 > *:last-child {
-    margin-bottom: 24px; /* 👈 jemné, přirozené */
+    margin-bottom: 8px !important;
 }
