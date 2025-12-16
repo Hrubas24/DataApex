@@ -1,37 +1,7 @@
-/* ===========================================
-   JEDINÁ VIZUÁLNÍ ZMĚNA: BACKGROUND OBRÁZEK (FIXED)
-   + FUNKČNÍ FIX: SPACER DOLE (aby text nelezl do inputu)
-=========================================== */
-
-.s9t60i1{
-  position: relative;
-}
-
-/* background obrázek – nemění pozici při scrollu */
-.s9t60i1::before{
-  content:"";
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-
+.s9t60i1 {
   background-image: url("https://www.shutterstock.com/image-vector/highperformance-liquid-chromatography-hplc-machine-600nw-2251283969.jpg");
   background-repeat: no-repeat;
   background-position: center 75%;
   background-size: 360px auto;
-
-  opacity: 0.10;
-  pointer-events: none;
-}
-
-/* ✅ reálný spacer na konci scroll obsahu (NEPŘEPIŠE layout, jen přidá místo) */
-.s9t60i1::after{
-  content:"";
-  display: block;
-  height: 120px;       /* 👈 uprav 90–160px podle výšky inputu */
-}
-
-/* obsah nad backgroundem */
-.s9t60i1 > *{
-  position: relative;
-  z-index: 1;
+  background-attachment: fixed; /* drží pozici */
 }
