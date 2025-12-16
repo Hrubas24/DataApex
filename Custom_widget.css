@@ -1,42 +1,12 @@
-/* kontejner palců */
-.vf-thumb-wrap{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  margin-right:10px;      /* od ikon vpravo */
-  transform: translateY(3px); /* posun dolů */
-}
+.s9t60i1 {
+    position: relative;
+    padding: 0 20px 20px;
+    margin-bottom: -20px;
+    overflow: hidden;
+    scrollbar-width: none;
+    flex-grow: 1;
+    overflow-y: auto;
+    width: 100%;
 
-/* tlačítko */
-.vf-thumb-btn{
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.25);
-  border-radius: 10px;
-  width: 28px;
-  height: 28px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  padding:0;
-  transition: transform .12s ease, background .12s ease;
-}
-
-.vf-thumb-btn:hover{
-  transform: translateY(-1px);
-  background: rgba(255,255,255,0.18);
-}
-
-/* ikonka */
-.vf-thumb-icon{
-  width: 18px;
-  height: 18px;
-  fill: #fff; /* barva palců */
-  opacity: .95;
-}
-
-/* volitelně: aktivní stav (pokud si pak doplníme JS) */
-.vf-thumb-btn.is-active{
-  background: rgba(255,255,255,0.28);
-  border-color: rgba(255,255,255,0.45);
+    background-color: #eaf4ff; /* světle modrá */
 }
