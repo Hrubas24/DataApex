@@ -1,7 +1,13 @@
 .s9t60i1 {
-  background-image: url("https://www.shutterstock.com/image-vector/highperformance-liquid-chromatography-hplc-machine-600nw-2251283969.jpg");
-  background-repeat: no-repeat;
-  background-position: center 75%;
-  background-size: 360px auto;
-  background-attachment: fixed; /* drží pozici */
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.90),
+      rgba(255, 255, 255, 0.90)
+    ),
+    url("https://www.shutterstock.com/image-vector/highperformance-liquid-chromatography-hplc-machine-600nw-2251283969.jpg");
+
+  background-repeat: no-repeat, no-repeat;
+  background-position: center 75%, center 75%;
+  background-size: cover, 360px auto;
+  background-attachment: scroll, fixed;
 }
