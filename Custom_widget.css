@@ -1,35 +1,36 @@
-/* kontejner pro palce */
+/* kontejner */
 #vf-thumb-feedback {
   display: inline-flex;
-  gap: 8px;
   align-items: center;
-  margin-right: 8px; /* aby byly víc vlevo od původních ikon */
+  gap: 10px;
+  margin-right: 10px;
 }
 
 /* tlačítka */
-#vf-thumb-feedback .vf-thumb-btn {
-  width: 28px;
-  height: 28px;
-  border: 0;
-  padding: 0;
+.vf-thumb-btn {
   background: transparent;
+  border: none;
+  padding: 4px;
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  /* “níže” v headeru */
-  transform: translateY(2px);
-}
-
-/* bílé ikony */
-#vf-thumb-feedback .vf-thumb-btn svg {
-  width: 18px;
-  height: 18px;
-  fill: #fff;
+  color: #ffffff;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, transform 0.15s ease;
 }
 
 /* hover */
-#vf-thumb-feedback .vf-thumb-btn:hover {
-  opacity: 0.85;
+.vf-thumb-btn:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* klik */
+.vf-thumb-btn:active {
+  transform: translateY(0);
+}
+
+/* SVG ikony */
+.vf-thumb-icon {
+  width: 22px;
+  height: 22px;
+  display: block;
 }
