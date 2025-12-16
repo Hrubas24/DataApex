@@ -2,54 +2,56 @@
    HLAVNÍ KONTEJNER (scroll část s bublinami)
 =========================================== */
 .s9t60i1 {
-    position: relative;
-    padding: 0 20px 70px;        /* prostor nad inputem */
-    margin-bottom: 0 !important; /* zruší překryv do inputu */
-    scrollbar-width: none;
-    flex-grow: 1;
-    overflow-y: auto;
-    width: 100%;
-    box-sizing: border-box;
-
-    scroll-padding-bottom: 70px; /* aby scroll neskončil pod inputem */
+  position: relative;
+  padding: 0 20px 16px;          /* ✅ malý padding = žádný velký gap */
+  margin-bottom: 0 !important;
+  scrollbar-width: none;
+  flex-grow: 1;
+  overflow-y: auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* ===========================================
    OBRÁZEK NA POZADÍ (neposouvá se se scroll)
 =========================================== */
 .s9t60i1::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: 0;
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
 
-    background-image: url("https://www.shutterstock.com/image-vector/highperformance-liquid-chromatography-hplc-machine-600nw-2251283969.jpg");
-    background-repeat: no-repeat;
-    background-position: center 75%;
-    background-size: 360px auto;
+  background-image: url("https://www.shutterstock.com/image-vector/highperformance-liquid-chromatography-hplc-machine-600nw-2251283969.jpg");
+  background-repeat: no-repeat;
+  background-position: center 75%;
+  background-size: 360px auto;
 
-    opacity: 0.10; /* jemné */
-    pointer-events: none;
+  opacity: 0.10;
+  pointer-events: none;
 }
 
 /* ===========================================
    OBSAH NAD POZADÍM
 =========================================== */
 .s9t60i1 > * {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
 /* ===========================================
-   ZMENŠENÍ GAPŮ POD AKČNÍMI PRVKY (Leave a contact)
+   OCHRANA: POSLEDNÍ PRVEK SE NEDOSCROLUJE POD INPUT
+   (nepřidává vizuální prázdno jako padding-bottom)
+=========================================== */
+.s9t60i1 > *:last-child {
+  margin-bottom: 12px !important;      /* jen drobná mezera */
+  scroll-margin-bottom: 90px;          /* ✅ klíčové: stopne se nad inputem */
+}
+
+/* ===========================================
+   PŘÍPADNĚ ZMENŠI SPACING U ACTION/BUTTON WRAPPERŮ
 =========================================== */
 .s9t60i1 [class*="message"],
 .s9t60i1 [class*="action"],
 .s9t60i1 [class*="button"] {
-    margin-bottom: 8px !important;
-}
-
-/* poslední prvek ve scrolu - už jen malá mezera */
-.s9t60i1 > *:last-child {
-    margin-bottom: 8px !important;
+  margin-bottom: 8px !important;
 }
