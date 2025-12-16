@@ -52,6 +52,6 @@
    (NEVYTVÁŘÍ VIZUÁLNÍ PRÁZDNO)
 =========================================== */
 .s9t60i1 > *:last-child {
-  margin-bottom: 4px !important;   /* 👈 co nejmenší mezera */
-  scroll-margin-bottom: 60px;      /* 👈 scroll se zastaví nad inputem */
+  margin-bottom: 2px !important;   /* 👈 co nejmenší mezera */
+  scroll-margin-bottom: 450px;      /* 👈 scroll se zastaví nad inputem */
 }
