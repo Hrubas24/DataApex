@@ -1,33 +1,29 @@
-#vf-thumb-feedback { display:flex; gap:8px; align-items:center; margin-right:12px; }
+#vf-thumb-feedback {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 12px;
+}
 
-#vf-thumb-feedback .vf-thumb-btn{
+#vf-thumb-feedback .vf-thumb-btn {
   all: unset;
   cursor: pointer;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:34px;
-  height:24px;
-  border-radius:999px;
-  background: rgba(255,255,255,0.14);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  transition: transform .15s ease, background .2s ease, opacity .2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#vf-thumb-feedback .vf-thumb-btn:hover{
-  background: rgba(255,255,255,0.22);
-  transform: translateY(-1px);
-}
-
-#vf-thumb-feedback .vf-thumb-btn:active{ transform: translateY(0px); }
-
-#vf-thumb-feedback .vf-thumb-icon{
-  width:16px; height:16px;
-  fill: none;
-  stroke: #fff;
-  stroke-width: 2;
+#vf-thumb-feedback .vf-thumb-icon {
+  width: 20px;
+  height: 20px;
+  color: #ffffff;
+  stroke-width: 1.6;
   stroke-linecap: round;
   stroke-linejoin: round;
-  opacity: .95;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+#vf-thumb-feedback .vf-thumb-btn:hover .vf-thumb-icon {
+  opacity: 1;
 }
