@@ -1,118 +1,35 @@
-/* Launcher bublina vpravo dole */
-.sr-launcher {
-  position: fixed;
-  right: 24px;
-  bottom: 24px;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: #0c1529;
-  color: #ffffff;
-  display: flex;
+/* kontejner pro palce */
+#vf-thumb-feedback {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  margin-right: 8px; /* aby byly víc vlevo od původních ikon */
+}
+
+/* tlačítka */
+#vf-thumb-feedback .vf-thumb-btn {
+  width: 28px;
+  height: 28px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-  z-index: 9998;
-  font-size: 22px;
+
+  /* “níže” v headeru */
+  transform: translateY(2px);
 }
 
-/* Náš kontejner = náhrada za VF widget */
-.sr-chat-wrapper {
-  position: fixed;
-  right: 24px;
-  bottom: 24px;
-  width: 380px;
-  max-width: calc(100% - 32px);
-  height: 540px;
-  max-height: calc(100% - 48px);
-  display: flex;
-  flex-direction: column;
-  border-radius: 16px;
-  overflow: hidden;
-  background: #0c1529;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
-  z-index: 9999;
+/* bílé ikony */
+#vf-thumb-feedback .vf-thumb-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: #fff;
 }
 
-.sr-chat-hidden {
-  display: none;
-}
-
-/* Header v našem kontejneru */
-.sr-chat-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 6px 10px;
-  color: #ffffff;
-}
-
-.sr-chat-title {
-  font-size: 13px;
-  font-weight: 600;
-}
-
-/* Pravá strana headeru: palce + refresh + close */
-.sr-chat-header-right {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-/* Palce */
-.sr-thumb-btn {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
-
-.sr-thumb-icon {
-  font-size: 16px;
-  color: #ffffff;
-  opacity: 0.9;
-  transition: transform 0.15s ease, opacity 0.15s ease;
-}
-
-.sr-thumb-icon:hover {
-  transform: scale(1.2);
-  opacity: 1;
-}
-
-/* Header buttony (refresh/close) */
-.sr-header-btn {
-  background: none;
-  border: none;
-  color: #ffffff;
-  cursor: pointer;
-  font-size: 16px;
-  opacity: 0.9;
-  padding: 0 2px;
-}
-
-.sr-header-btn:hover {
-  opacity: 1;
-}
-
-/* Vnitřek chatu – sem embedujeme Voiceflow */
-.sr-chat-body {
-  flex: 1;
-  min-height: 0;
-  background: #ffffff;
-}
-
-/* Responsivita na mobilu */
-@media (max-width: 600px) {
-  .sr-chat-wrapper {
-    right: 8px;
-    left: 8px;
-    width: auto;
-    height: calc(100% - 32px);
-  }
-
-  .sr-launcher {
-    right: 16px;
-    bottom: 16px;
-  }
+/* hover */
+#vf-thumb-feedback .vf-thumb-btn:hover {
+  opacity: 0.85;
 }
