@@ -86,6 +86,24 @@
     overflow: hidden;
 }
 
+/* ==========================================
+   HEADERS
+=========================================== */
+
 .markdown h2 {
    font-weight: 600;
+}
+
+/* ==========================================
+   AI ASSISTANT HEADER
+=========================================== */
+
+.vfrc-header--title {
+   position: relative;
+   top: 3px;
+   left: -6px;
+}
+
+.vfrc-header--actions {
+   padding-top: 2px;
 }
