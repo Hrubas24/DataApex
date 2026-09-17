@@ -56,3 +56,11 @@
 .jyiueic {
     color: #ffffff;
 }
+
+/* ===========================================
+   REMOVE TITLE TEXT
+=========================================== */
+
+.vfrc-assistant-info--title {
+  display: none !important;
+}
