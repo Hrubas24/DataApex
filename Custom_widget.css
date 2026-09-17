@@ -85,11 +85,3 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
-
-/* ==========================================
-   AI ASSISTANT TEXT HEADER
-========================================== */
-
-.vfrc-header--title {
-  display: none !important;
-}
