@@ -85,3 +85,8 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+
+.markdown h2 {
+   font-weight: 600;
+   color: red;
+}
