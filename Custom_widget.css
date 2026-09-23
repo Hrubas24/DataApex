@@ -118,8 +118,28 @@
 =========================================== */
 
 @media (max-width: 480px) {
+  /* zruší ruční 1px posun u palců, aby seděly na stejné ose jako ostatní tlačítka */
+  #vf-thumb-feedback {
+    transform: none !important;
+  }
+
   #vf-thumb-feedback button[data-vf-thumb] {
     width: 44px !important;
     height: 44px !important;
+  }
+
+  /* sjednotí velikost refresh a close tlačítek s palci, ať je vše stejně velké */
+  .vfrc-header--actions .vfrc-header--button {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  /* jistota vertikálního zarovnání celého řádku akcí i nadpisu vůči sobě */
+  .vfrc-header--actions {
+    align-items: center !important;
+  }
+
+  .vfrc-header--title {
+    align-self: center !important;
   }
 }
