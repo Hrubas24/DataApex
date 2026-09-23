@@ -112,3 +112,14 @@
     height: 31px;
     width: 32px;
 }
+
+/* ==========================================
+   THUMBS UP/DOWN PHONE VERSION
+=========================================== */
+
+@media (max-width: 480px) {
+  #vf-thumb-feedback button[data-vf-thumb] {
+    width: 44px !important;
+    height: 44px !important;
+  }
+}
