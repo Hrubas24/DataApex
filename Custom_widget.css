@@ -156,3 +156,12 @@
   unicode-bidi: normal !important;
   text-align: start !important;
 }
+.vfrc-system-response--actions[dir="rtl"] {
+  direction: rtl !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 33px !important;
+}
+.vfrc-system-response--actions[dir="rtl"] .vfrc-button {
+  text-align: start !important;
+}
