@@ -143,3 +143,16 @@
     align-self: center !important;
   }
 }
+
+
+/* ==========================================
+   ARABŠTINA TEXT DIRECTION
+=========================================== */
+
+.vfrc-system-response[dir="rtl"] {
+  direction: rtl !important;
+}
+.vfrc-system-response .markdown :is(p, h1, h2, h3, h4, h5, h6, li, em, a) {
+  unicode-bidi: normal !important;
+  text-align: start !important;
+}
