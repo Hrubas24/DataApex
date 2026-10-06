@@ -168,18 +168,19 @@
 /* ===== Seznamy s odrážkami v RTL ===== */
 .vfrc-system-response[dir="rtl"] .markdown ul {
   list-style: none !important;
-  margin-inline: 0 !important;
+  margin: 0 !important;
   padding: 0 !important;
 }
 .vfrc-system-response[dir="rtl"] .markdown ul > li {
-  position: relative;
+  position: relative !important;
   list-style: none !important;
   margin: 0 !important;
-  padding: 0 !important;
-  padding-inline-start: 1.25em !important; /* v RTL = pravá strana */
+  padding-left: 0 !important;
+  padding-right: 1.5em !important;
 }
 .vfrc-system-response[dir="rtl"] .markdown ul > li::before {
   content: "•";
-  position: absolute;
-  inset-inline-start: 0; /* v RTL = vpravo */
+  position: absolute !important;
+  right: 0 !important;
+  left: auto !important;
 }
