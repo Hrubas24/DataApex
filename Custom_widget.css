@@ -166,12 +166,20 @@
 }
 
 /* ===== Seznamy s odrážkami v RTL ===== */
-
-.vfrc-system-response[dir="rtl"] .markdown :is(ul, ol) {
-  padding-left: 0 !important;
-  padding-inline-start: 1.5em !important; /* v RTL = pravá strana */
+.vfrc-system-response[dir="rtl"] .markdown ul {
+  list-style: none !important;
+  margin-inline: 0 !important;
+  padding: 0 !important;
 }
-.vfrc-system-response[dir="rtl"] .markdown li {
-  margin-left: 0 !important;
-  padding-left: 0 !important;
+.vfrc-system-response[dir="rtl"] .markdown ul > li {
+  position: relative;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  padding-inline-start: 1.25em !important; /* v RTL = pravá strana */
+}
+.vfrc-system-response[dir="rtl"] .markdown ul > li::before {
+  content: "•";
+  position: absolute;
+  inset-inline-start: 0; /* v RTL = vpravo */
 }
