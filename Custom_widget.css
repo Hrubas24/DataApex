@@ -144,7 +144,6 @@
   }
 }
 
-
 /* ==========================================
    ARABŠTINA TEXT DIRECTION
 =========================================== */
@@ -164,4 +163,15 @@
 }
 .vfrc-system-response--actions[dir="rtl"] .vfrc-button {
   text-align: start !important;
+}
+
+/* ===== Seznamy s odrážkami v RTL ===== */
+
+.vfrc-system-response[dir="rtl"] .markdown :is(ul, ol) {
+  padding-left: 0 !important;
+  padding-inline-start: 1.5em !important; /* v RTL = pravá strana */
+}
+.vfrc-system-response[dir="rtl"] .markdown li {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
 }
